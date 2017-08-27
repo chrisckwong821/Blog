@@ -10,7 +10,7 @@ Link to My Blog : https://chrisckwong821.github.io/Blog/
 1. Summary of Fundamental Calculation
 2. Effective EWMA Signal
 3. Day-in Day-out Stretegies
-__working on : stock selection__
+- __working on : stock selection__
 
 ### Kaggle
 - Titanic: 79.6%
