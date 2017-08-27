@@ -1,6 +1,6 @@
 # visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
 
-paginate: 10 # pagination based on number of posts
+paginate: 5 # pagination based on number of posts
 paginate_path: "page:num"
 exclude: ["README.md"] # files to exclude
 highlighter: rouge
@@ -28,14 +28,17 @@ author:
   bio: Python Developer
   email_md5: 726351295ec82e145928582f595aa3aa
 
+
 rss_path: feed.xml
 categories_path: categories.html
 tags_path: tags.html
 
 # set it as url of an image
 # sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
+sidebar_image: https://github.com/chrisckwong821/Blog/blob/gh-pages/assets/media/Profile.png
 
 BASE_PATH: /Blog
-baseurl: '/Blog'
+baseurl: /Blog
 gems:
   - jekyll-paginate
+  - jekyll-seo-tag
