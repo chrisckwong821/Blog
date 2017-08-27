@@ -1,4 +1,5 @@
-My Blog | Financial Trading | Machine Learning | Python | Calisthenics
+My Blog 
+Financial Trading | Machine Learning | Python | Calisthenics
 =====
 
 URL : https://chrisckwong821.github.io/Blog/
