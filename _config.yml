@@ -1,0 +1,41 @@
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+
+paginate: 10 # pagination based on number of posts
+paginate_path: "page:num"
+exclude: ["README.md"] # files to exclude
+highlighter: rouge
+markdown: kramdown
+#disqus: dbyll
+google_analytics: dbyll
+title: Chris Wong
+timezone: Asia/Hong Kong
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: Chris Wong’s Blog
+
+description: Chris Wong’s Blog
+author:
+  name: Chris Wong
+  email: chrisckwong821@gmail.com
+  github: /chrisckwong821
+  twitter: /chrisckwong821
+  linkedin: https://www.linkedin.com/in/chris-chun-kau-wong-8a05bba4/
+  medium: https://medium.com/@chris_whirlwind
+  bio: Python Developer
+  email_md5: 726351295ec82e145928582f595aa3aa
+
+rss_path: feed.xml
+categories_path: categories.html
+tags_path: tags.html
+
+# set it as url of an image
+# sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
+
+BASE_PATH: /My-Personal-Blog/
+
+gems:
+  - jekyll-paginate
