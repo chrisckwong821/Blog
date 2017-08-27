@@ -16,10 +16,12 @@ defaults:
       path: "" # empty string for all files
     values:
       title: Chris Wong’s Blog
+      comments: true
 
 description: Chris Wong’s Blog
 author:
   name: Chris Wong
+  avatar: "/assets/media/Profile.png"
   email: chrisckwong821@gmail.com
   github: /chrisckwong821
   twitter: /chrisckwong821
