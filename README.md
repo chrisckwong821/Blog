@@ -1,37 +1,27 @@
-dbyll
+My Blog | Financial Trading | Machine Learning | Python | Calisthenics
 =====
 
-Open source stylish, minimalistic theme for jekyll.  
-Demo: http://dbtek.github.io/dbyll/
+URL : https://chrisckwong821.github.io/Blog/
 
-## New
-- Dbyll for Ghost is now available. Get it [here](https://github.com/dbtek/dbyll-ghost) now.
-- :new: Check out [Paper](https://github.com/dbtek/paper), new Material Design Jekyll theme.
+## Financial Trading
+- Hang Seng Index:
+- Summary of Fundamental Calculation
+- Effective EWMA Signal
+- Day-in Day-out Stretegies
+- working on : stock selection
 
-### Features
-- Responsive layout.
-- Supports tags and categories.
-- Social profile and bio of author.
-- Bootstrap based.
-- Glyphicon and Font-Awesome Icons.
-- Pagination.
-- Syntax highlighting with pygments.
-- Disqus comments.
-- :new: Custom sidebar background image.
+### Kaggle
+- Titanic: 79.6%
+- working on : Household Price
+
+### Numerai
+- Random Forest Tree with feature interactions(0.6920)
+- Logistic Regression with Randomized feature selection(0.6921)
+- working on : building a fast,iterative and stable workflow
 
 
-### Download
-* [Download dbyll](https://github.com/dbtek/dbyll/archive/master.zip)
-
-### Install
-- You need to have [ruby](https://www.ruby-lang.org/en/documentation/installation/) installed in your system.
-- Install bundler which helps in specifying and installing dependencies of any Ruby project. ```gem install bundler```
-- Go to the root of the repo and run this - ```bundle install```
-- Then - ```bundle exec jekyll serve```
-
-### Screenshots
-![dbyll-screenshot](assets/media/dbyll-ss.png)
-
-### License
-- [MIT](http://opensource.org/licenses/MIT)
+### Connect with me on Social Media
+![Connect](assets/media/Profile.png)
+- ![Facebook](https://www.facebook.com/wonchunkau)
+- ![Twitter](https://twitter.com/chrisckwong821)
 
