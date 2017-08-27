@@ -7,9 +7,9 @@ Link to My Blog : https://chrisckwong821.github.io/Blog/
 
 ## Financial Trading
 - Hang Seng Index:
-Summary of Fundamental Calculation
-Effective EWMA Signal
-Day-in Day-out Stretegies
+1.Summary of Fundamental Calculation
+2.Effective EWMA Signal
+3.Day-in Day-out Stretegies
 __working on : stock selection__
 
 ### Kaggle
