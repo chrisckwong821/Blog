@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Understand HSI - I - Trending or reversible?</title>
+	
+	<meta name="author" content="Chris Wong">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/My-Personal-Blog//assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/My-Personal-Blog//assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/My-Personal-Blog//assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/My-Personal-Blog//assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/My-Personal-Blog//feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com//chrisckwong821">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com//chrisckwong821">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="mailto:chrisckwong821@gmail.com">
+				<i class="fa fa-envelope"></i>
+			</a>
+			
+			<a class="navbar-brand" href="/My-Personal-Blog//">
+				<img src="//www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				Chris Wong
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/My-Personal-Blog//">Home</a></li>
+				<li><a href="/My-Personal-Blog//categories.html">Categories</a></li>
+				<li><a href="/My-Personal-Blog//tags.html">Tags</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/My-Personal-Blog//"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/My-Personal-Blog//categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/My-Personal-Blog//tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+
+	<div class="col-sm-3 sidebar hidden-xs" style="">
+		<!-- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/My-Personal-Blog//">
+		<img src="//www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=150" class="img-circle" />
+	</a>
+	<h3 class="title">
+        <a href="/My-Personal-Blog//">Chris Wong</a>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+	Python Developer
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com//chrisckwong821">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://twitter.com//chrisckwong821">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:chrisckwong821@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://linkedin.com/in/https://www.linkedin.com/in/chris-chun-kau-wong-8a05bba4/">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="/My-Personal-Blog//feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<!-- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3">
+		<div class="page-header">
+  <h1>Understand HSI - I - Trending or reversible? </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   August 
+	   2nd,
+	     
+	   2017
+	 </span>
+	  <div class="article_body">
+	  <p>There are a lot of unofficial beliefs on HSI, including a bottom in May and peak in July.
+Instead of backtesting for a particular one or two signals, I want to offer a programatic way of knowing how HSI behaves in the past decade. In the first episode, which is this article, I want to apply simple strategy, just to demonstrate my logic and how programs can be used to examine our trading ideas more objectively.
+Before diving into the content, I want to highlight the fact that I am just testing HSI, not even its future or any derivative. So this article would be of research in nature. It does not and should not be directly implemented into a trading strategy unless you want to play dice.
+So here comes the meat. Is HSI a trendy or a reversible index? This is a qualitative question, which we usually ask in conversation. A more investment-oriented one would be HOW MUCH? Now,</p>
+
+<p><img src="http://localhost:4000/assets/media/HSI/HSI1/Long.png" alt="Long Strategy" /></p>
+
+<p>This table lists the PnL of trend-following trading. The first row means to start buying after one up-move day. Buy in opening, sell at close, take the spread, that simple. The second row means to long only after two consecutive up days, take the spread of the 3-rd day. If it is an up day, then continue to long on the 4th day, until a down to break the trend, then recount the next up day as day 1, so on and so fro…
+Clearly, to start buying on the 2nd to 7th day is a loser strategy, contrary to start buying after the very first upward move. However this strategy is a simple one considering the gain per trade (13p) and huge standard deviation, not to mentioned the drastic minimum and maximum gain compare to the average one.
+Amazingly, there are many possible ways to make improvement revealed in this simple table. First, you would notice profit is generated mainly from the 2nd up days. As soon as you go long after HSI moves up for two consecutive days. Chances are, you would not make much money.</p>
+
+<p><img src="http://localhost:4000/assets/media/HSI/HSI1/OneDayLong.png" alt="One-day Long Strategy" /></p>
+
+<p>Bang! This is the PnL of longing only after the first up day, and just for ONE DAY. You get more profit but trade half of times, This buffs up gain per trade to 29p.
+Second possible improvement is, to incorporate some shorting. From the first table, we observe start longing after 3rd to 7th up days seriously bankrupt you, lets test the effect.</p>
+
+<p><img src="http://localhost:4000/assets/media/HSI/HSI1/ODLand.png" alt="One-day Long and Continuous Short Strategy" /></p>
+
+<p>This is the PnL of two strategies, long after the first up move day for ONE DAY, start shorting after the up trend continues for certain day. The first row is to short after 2 up days, the second row is to short after 3 up days…etc.
+It does not improve compared to long only, isn’t it? What if we only short one day?</p>
+
+<p><img src="http://localhost:4000/assets/media/HSI/HSI1/ODLS.png" alt="One-day Long and One-day Short Strategy" /></p>
+
+<p>Again the improvement is insignificant.
+(Summary) — All we have considered, is just a pure switch of up/down. And we come up 30p gain per trade by simply long right after any upward day, for the next ONE DAY ONLY.
+Lets add more complexity by considering the momentum. There are many innovative ways of measuring momentum. The simplest way to proxy momentum is by how much the close price is below the daily high. The closer these two prices are, the more bullish it is.
+Convention would suggest the tighter the threshold, meaning that the closer the close price is to daily high the more likely the price on next day would shoot up. Practically, how tight should it be? I have tested the long threshold from 1 to 150 points. There are a lot of irregularity when the threshold is too small. The gpt only stabilizes at 50 and reach the peak at 94 points. So it means any day with a close price within 94 points of daily high is worth a shot.</p>
+
+<p>Honestly I don’t like charting because it is simply not representative of the data. But to give you a visual favor I output a chart anyway. Standard deviation basically decreases as number of trades increases with threshold so I decided to keep them in the background.</p>
+
+<p><img src="http://localhost:4000/assets/media/HSI/HSI1/lastcurve.jpg" alt="Summary" /></p>
+
+<p>Generally speaking, it is true that the looser the threshold, the more trade and profit you would have, but sacrificing the level of gain per trade. Having said that, picking the right sweet spot for each product requires programmatic testing.</p>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/My-Personal-Blog//categories.html#Financial Trading-ref">
+					Financial Trading <span>(3)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/My-Personal-Blog//tags.html#Hang Seng Index-ref">
+					Hang Seng Index <span>(3)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/My-Personal-Blog//tags.html#backtest-ref">
+					backtest <span>(3)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/My-Personal-Blog//tags.html#programmatic-ref">
+					programmatic <span>(1)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Understand HSI - I - Trending or reversible?&via=/chrisckwong821"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+      <section class="col-sm-6 author">
+        <img src="//www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa" class="img-rounded author-image" />
+        <h4 class="section-title author-name">Chris Wong</h4>
+        <p class="author-bio">Python Developer</p>
+      </section>
+    </div>
+
+    <div class="clearfix"></div>
+
+		<ul class="pager">
+		  
+		  <li class="previous disabled"><a>&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="/My-Personal-Blog//financial%20trading/2017/08/15/HSI-2.html" title="Understanding HSI - II - Fundament of HSI">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+
+
+		<footer>
+			<hr/>
+			<p>
+				&copy; 2017 Chris Wong with <a href="http://jekyllrb.com/">Jekyll</a>. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/My-Personal-Blog//assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/My-Personal-Blog//assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/My-Personal-Blog//assets/js/app.js"></script>
+</body>
+</html>
+
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'dbyll', 'auto');
+  ga('send', 'pageview');
+</script>
+

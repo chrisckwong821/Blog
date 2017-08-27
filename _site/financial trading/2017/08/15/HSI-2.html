@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Understanding HSI - II - Fundament of HSI</title>
+	
+	<meta name="author" content="Chris Wong">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/My-Personal-Blog//assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/My-Personal-Blog//assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/My-Personal-Blog//assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/My-Personal-Blog//assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/My-Personal-Blog//feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com//chrisckwong821">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com//chrisckwong821">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="mailto:chrisckwong821@gmail.com">
+				<i class="fa fa-envelope"></i>
+			</a>
+			
+			<a class="navbar-brand" href="/My-Personal-Blog//">
+				<img src="//www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=35" class="img-circle" />
+				Chris Wong
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/My-Personal-Blog//">Home</a></li>
+				<li><a href="/My-Personal-Blog//categories.html">Categories</a></li>
+				<li><a href="/My-Personal-Blog//tags.html">Tags</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/My-Personal-Blog//"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/My-Personal-Blog//categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/My-Personal-Blog//tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+
+	<div class="col-sm-3 sidebar hidden-xs" style="">
+		<!-- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/My-Personal-Blog//">
+		<img src="//www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa?s=150" class="img-circle" />
+	</a>
+	<h3 class="title">
+        <a href="/My-Personal-Blog//">Chris Wong</a>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+	Python Developer
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com//chrisckwong821">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://twitter.com//chrisckwong821">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:chrisckwong821@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://linkedin.com/in/https://www.linkedin.com/in/chris-chun-kau-wong-8a05bba4/">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="/My-Personal-Blog//feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<!-- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3">
+		<div class="page-header">
+  <h1>Understanding HSI - II - Fundament of HSI </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   August 
+	   15th,
+	   
+	   2017
+	 </span>
+	  <div class="article_body">
+	  <p>Before going into another session of analysis on HSI, it is good, if not necessary, to know how the index is computed from its constituents mathematically. Here is a list of must-know fact that tells you how HSI is reported.</p>
+
+<p>Fundamental:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- HSI is an equity index that consists of 50 blue chip stocks listed in HKEx.
+- Based on the July report 2017, the index represents 57% of total market value and 49% of turnover in HKEx
+- However the 7 biggest stocks already account for half of the weighting, namely. Tencent(10.96%), HSBC Holding(10.91%), AIA(8.58%), CCB(8.13%), China Mobile(5.95%) and ICBC(4.67%). Noted that Financials stocks account for 48.75% of the weighting.
+</code></pre>
+</div>
+
+<p>On total return:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- HSI is a basket of 40 blue-chip stocks. Just like any equity, it would distribute dividend every half year. Thus the index would be discounted whenever dividends are distributed. To compute the absolute return of HSI, you need to look into the HSI total return index which takes into account of the historical dividends.
+</code></pre>
+</div>
+
+<p>For computational methodology, I would explain it below. But you may go straight to the <strong><a href="http://www.hsi.com.hk/HSI-Net/static/revamp/contents/en/dl_centre/brochures/Methodology_E.pdf">reference</a></strong> if you like documentation.</p>
+
+<p>According to HSI Company, the index is free float-adjusted MV weight index with a 10% cap on individual securities.What does that even mean? The statement can be broken in three elements:</p>
+
+<ol>
+  <li>free float-adjusted</li>
+  <li>MV weight</li>
+  <li>10% cap.</li>
+</ol>
+
+<p>I would explain them one by one. But let’s look at the real formula:</p>
+
+<p><img src="http://localhost:4000/assets/media/HSI/HSI2/formula.jpeg" alt="Formular to compute HSI" /></p>
+
+<p>In the most generic terms, the index takes into account 4 factors:</p>
+
+<ol>
+  <li>Price</li>
+  <li>Issued shares</li>
+  <li>FAF</li>
+  <li>CF</li>
+</ol>
+
+<p>It measures their ratios relative to values yesterday, and multiply by the closing index yesterday. Since both FAF and CF adjust <strong>quarterly</strong>(Super important!), the index primarily behaves no different from a market-cap based index, except it is interrupted by quarter adjustment.</p>
+
+<p>Market Value(MV): Price multiply by number of issued shares</p>
+
+<p>Free float-adjusted factor: Adjusted quarterly based on the liquidity of the issued shares. Reflect whether the proportion of shares are held by big corporations or shareholders only or other investors.</p>
+
+<p>10% cap: The maximum influence of individual stock on the index is capped at 10%. As of now (As of 14/8/2017), there only two stocks which reach this limit. HSBC and Tencent, only 53% and 59% of their capitalisations are accounted into HSI respectively.</p>
+
+<p>However, as you may notice, one stock may also exceed 10% cap if it surges after the quarter rebalancing of FAF and CF. In addition, if a constituent is excluded from the index, the index would recount so influence of individual stocks may exceed the 10% cap as well.</p>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/My-Personal-Blog//categories.html#Financial Trading-ref">
+					Financial Trading <span>(3)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/My-Personal-Blog//tags.html#Hang Seng Index-ref">
+					Hang Seng Index <span>(3)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/My-Personal-Blog//tags.html#backtest-ref">
+					backtest <span>(3)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Understanding HSI - II - Fundament of HSI&via=/chrisckwong821"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+      <section class="col-sm-6 author">
+        <img src="//www.gravatar.com/avatar/726351295ec82e145928582f595aa3aa" class="img-rounded author-image" />
+        <h4 class="section-title author-name">Chris Wong</h4>
+        <p class="author-bio">Python Developer</p>
+      </section>
+    </div>
+
+    <div class="clearfix"></div>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="/My-Personal-Blog//financial%20trading/2017/08/02/HSI-1.html" title="Understand HSI - I - Trending or reversible?">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="/My-Personal-Blog//financial%20trading/2017/08/26/HSI-3.html" title="Understanding HSI - III - The Best EWMA Pair">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+
+
+		<footer>
+			<hr/>
+			<p>
+				&copy; 2017 Chris Wong with <a href="http://jekyllrb.com/">Jekyll</a>. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/My-Personal-Blog//assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/My-Personal-Blog//assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/My-Personal-Blog//assets/js/app.js"></script>
+</body>
+</html>
+
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'dbyll', 'auto');
+  ga('send', 'pageview');
+</script>
+
