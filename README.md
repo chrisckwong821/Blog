@@ -26,4 +26,4 @@ Link to My Blog : https://chrisckwong821.github.io/Blog/
 - [Facebook](https://www.facebook.com/wonchunkau)
 - [Twitter](https://twitter.com/chrisckwong821)
 
-![Hello](assets/media/Profile.png&s=200)
+![Hello](assets/media/Profile.png){:height="700px" width="400px"}
