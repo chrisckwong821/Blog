@@ -10,19 +10,20 @@ Link to My Blog : https://chrisckwong821.github.io/Blog/
 - Summary of Fundamental Calculation
 - Effective EWMA Signal
 - Day-in Day-out Stretegies
-- **working on : stock selection**
+- __working on : stock selection__
 
 ### Kaggle
 - Titanic: 79.6%
-- working on : Household Price
+- __working on : Household Price__
 
 ### Numerai
 - Random Forest Tree with feature interactions(0.6920)
 - Logistic Regression with Randomized feature selection(0.6921)
-- **working on : building a fast,iterative and stable workflow**
+- __working on : building a fast,iterative and stable workflow__
 
 
 ### Connect with me on Social Media
 - [Facebook](https://www.facebook.com/wonchunkau)
 - [Twitter](https://twitter.com/chrisckwong821)
-[Hello!](assets/media/Profile.png=250x250)
+
+Hello![](assets/media/Profile.png =250x250)
