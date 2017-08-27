@@ -21,14 +21,13 @@ defaults:
 description: Chris Wong’s Blog
 author:
   name: Chris Wong
-  avatar: "/assets/media/Profile.png"
   email: chrisckwong821@gmail.com
   github: /chrisckwong821
   twitter: /chrisckwong821
   linkedin: https://www.linkedin.com/in/chris-chun-kau-wong-8a05bba4/
   medium: https://medium.com/@chris_whirlwind
   bio: Python Developer
-  email_md5: 726351295ec82e145928582f595aa3aa
+  email_md5: 4c49576fe83075f5d36fec69fa7bc296
 
 
 rss_path: feed.xml
