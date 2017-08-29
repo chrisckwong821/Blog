@@ -1,3 +1,13 @@
+---
+layout: post
+header:
+  teaser: /assets/images/my-awesome-post-teaser.jpg
+title: Understanding HSI - III - The Best EWMA Pair
+categories: [Machine Learning]
+tags: [Numerai, Machine Learning, Data Science, Python]
+fullview: true
+comments: true
+---
 
 Numerai is an online machine learning tournament which is operated by numerai. You may refer to this article for an introduction. In this article, I want to describe how I approach the problem, and build up a set of tools that helps me to rapidly iterate over different algorithms for testing, modification and ensembing.
 
