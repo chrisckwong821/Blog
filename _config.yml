@@ -38,7 +38,7 @@ tags_path: tags.html
 # sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
 #sidebar_image: https://github.com/chrisckwong821/Blog/blob/gh-pages/assets/media/Profile.png
 
-BASE_PATH: 
+#BASE_PATH: 
 
 gems:
   - jekyll-paginate
