@@ -23,7 +23,7 @@ class models:
         self.test_data = pd.read_csv(path + "numerai_tournament_data.csv",header=0)
 print(models().training_data.head(1))        
 ```
-<script src="https://gist.github.com/chrisckwong821/e2c4023e08e908466ebaf1a2a67aae85.js"></script>
+<script src="https://gist.github.com/chrisckwong821/0ea85216a9b9b158334e24ded809a881.js"></script>
 
 The data contains 21 features range from 0 to 1, with the binary target(0,1). Numerai claims that they encrypted financial data into the dataset so it is more than simple time-series data. Each row contains a unique id, an era which label its type, and whether it belongs to train/test data.
 
