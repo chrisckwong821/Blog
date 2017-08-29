@@ -39,8 +39,8 @@ tags_path: tags.html
 #sidebar_image: https://github.com/chrisckwong821/Blog/blob/gh-pages/assets/media/Profile.png
 
 BASE_PATH: 
-baseurl:''
+baseurl: ''
 
 gems:
   - jekyll-paginate
-  - jekyll-seo-tag
+
