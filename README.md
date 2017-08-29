@@ -3,7 +3,7 @@ My Blog
 Financial Trading | Machine Learning | Python | Calisthenics
 =====
 
-Link to My Blog : https://chrisckwong821.github.io/Blog/
+Link to My Blog : https://chrisckwong821.github.io/
 
 ## Financial Trading
 - Hang Seng Index:
