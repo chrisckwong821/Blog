@@ -135,16 +135,7 @@ Inspired by [this article](http://fastml.com/adversarial-validation-part-one/) o
         
         ids = test_alike_data.join(Y_train.set_index('id'),on='id')['id']
         return self.X[self.training_data['id'].isin(ids)],self.Y[self.training_data['id'].isin(ids)]
-    
-    ######### I implement
-        for i in range(1,97):
-            samples = self.training_data[self.era=='era{}'.format(i)]
-            X_train = X_train.append(samples.sample(int(round(samples.shape[0]/num))))
-        sample_size_train = X_train.shape[0]
-        sample_size_test = X_test.shape[0]
-        X_data = pd.concat([X_train, X_test])
-        Y_data = np.array(sample_size_train*[0] + sample_size_test*[1])
-        #########    
+
 ```
 
 Basically the function outputs the X and Y that most resembles the prediction data, of custom range. I use default sample size of 10000 which is reported by others to be most efficient. But this is heuristic and can be tested case by case.
