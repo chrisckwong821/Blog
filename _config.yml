@@ -15,7 +15,6 @@ defaults:
     scope:
       path: "" # empty string for all files
     values:
-      title: Chris Wong’s Blog
       comments: true
 
 description: Chris Wong’s Blog
