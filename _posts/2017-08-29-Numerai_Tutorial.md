@@ -102,7 +102,7 @@ Inspired by [this article](http://fastml.com/adversarial-validation-part-one/) o
 
 
 ```python
-    def advisory_screen(self,num=1,samplesize=10000):
+    def advisory_screen(self,samplesize=10000):
         model = RandomForestClassifier(n_estimators=50)
         X_train = self.training_data.drop(['id','era','data_type','target'],1)
         X_test = self.X_prediction[16686:]
