@@ -8,7 +8,7 @@ fullview: true
 comments: true
 ---
 
-In the previous article, I have demonstrated the method to iteratively read in the data for Numerai tournament, implement data preprocessing, and  high-level algorithms from scikit learn by creating a class variable. I have also included an implementation of adversarial validation, which is to intentionally select that most resemble the test data. The assumption is that train and test sets may come from different distributions, and we are given a big set of training data relative to the test data that we can possibly waste some without losing too much information.
+In the previous article, I have demonstrated the method to iteratively read in the data for Numerai tournament, implement data preprocessing, and  high-level algorithms from scikit learn by creating a class variable. I have also included an implementation of adversarial validation, which is to intentionally select training data which most resemble the test data. The assumption is that train and test sets may come from different distributions, and we are given a big set of training data relative to the test data that we can possibly waste some without losing too much information.
 
 Machine learning is an exercise of garbage in and Garbage out("GIGO"). If you feed too complex data into a algorithm which does a lot of logics and maths, chances are you would get some meaningless output, as algorithms are at the end of days, merely a qunatiative representation of information. 
 
@@ -33,7 +33,7 @@ def eraStandardize(self,dataset,model):
 ```
 
 
-Since we need to feed in both training and test data for the era-specific preprocessing, this function would work with both data for convenience. we can specify the datasets by the variable "dataset", and the function to be applied on the data by "model".
+Since we need to feed in both training and test data for the era-specific preprocessing, this function would work with both data for convenience. we can specify the datasets by the variable `dataset`, and the function to be applied on the data by `model`.
 
 
 
@@ -44,10 +44,10 @@ self.X_prediction = Preprocess().StandardScaler(self.X_prediction)
 ```
 
 
-This is an example implementation. both train and test data are fed into the custom eraStandardize function, using the scikitlearn StandardScalar function, while the prediction data is fed into the StandardScalar function directly, since we dont have the "era" label for the prediction data.
+This is an example implementation. Both train and test data are fed into the custom eraStandardize function, using the scikitlearn `StandardScalar`, while the prediction data is fed into the StandardScalar function directly, since we dont have the `era` label for the prediction data.
 
 
-Since the data is capable of adversarial validation, why dont we implement era-specific adversarial validation? So we screen out data for training era by era, in order to preserve the same percentage of data from each era.
+Since the data is capable of adversarial validation, why don't we implement era-specific adversarial validation? So we screen out data for training era by era, in order to preserve the same percentage of data from each era.
 
 
 
@@ -85,7 +85,7 @@ def advisory_screen(self,portion,train_x):
 
 ```
 
-The code basically specifies the test data with a label of 1, and specify the training data with a label of 0. Then we apply the classifier to train the data era by era, select only the certain top range of training data. RandomForest with n_estimator 30 above performs quite well in the classification, usually losing only a few datapoint, but takes almost half an hour to complete one loop(all era for once) in my Mac when I use one core only.
+The code basically specifies the test data with a label of 1, and specify the training data with a label of 0. Then we apply the classifier to train the data era by era, select only the certain top range of training data. RandomForest with n_estimator 30 above performs quite well in the classification, usually misclassify only a few datapoints, but takes almost half an hour to complete one loop(all era for once) in my Mac when I use one core only.
 
 If you want an iterative way to screen out data, while each time only screen out a small portion, you can easily do it by recursively feeding the data back into the function, until the number of data meets your target. In fact that is what I would recommend because it includes more stability and avoids screening out a lot of information in one go. However it would take quite a few hours to complete then.
 
