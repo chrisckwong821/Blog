@@ -10,24 +10,21 @@ comments: true
 
 I was inspired by the [Pairs Trading with Machine Learning](https://www.quantopian.com/posts/pairs-trading-with-machine-learning) on Quantopian, where the author Mr. Jonathan Larkin applies DBSCAN, a clustering technique to select stock pairs that behave similarly. From an universe of 1500 stocks, or 1 million pairs, He managed to boil down to 90 pairs using a programmatic approach.
 
-AS of 3-Sep-2017, There are 934 stocks which are eligible for short sell in HK stock exchange. The basket is quite big. However, I was quite disappointed that there are not much free online resources or toolkit on HK stocks that come close to what quantopian does on the US stocks. Most of the brokeage firm, data vendors only provide free analytical report, or simply query searching, but not an API or a system which allows reproducible analysis.
+AS of 3-Sep-2017, There are 934 stocks which are eligible for short sell in HK stock exchange. The basket is quite big. However, there are not much free online resources or toolkit on HK stocks that come close to what quantopian does on the US stocks. Most of the brokeage firm, data vendors only provide free analytical report, or simply query searching, but not an API or a system which allows reproducible analysis.
 
-Therefore, I would like to conduct an analysis on pair trading specific to Hong Kong stocks. I would first focus on the implementation. If the strategy proceeds to create satisfactory performance, I may compile a package with user interface or customized features as well.
-
-
+Therefore, I would like to conduct an analysis on pair trading specific to Hong Kong stocks.
 
 If you want to go straight to see which pairs of stocks have the closest relationship in price movement. You may go straight to the bottom of the article.
 
-
 Before the implementation, it is good to motivate the topic by stating what the current situation and what I am going to do. 
 
-Among the 934 stocks eligible for short sell, only the most liquid and hot equities are being short sold. The top blue-chip stocks have a short sell ratio up to 30%, while the second-tier stocks only have a few percentages. Clearly part of the reason for the discrepancy is that investors are worried about the short squeeze or noisy trading behaviors due to smaller liquidity on those stocks. But at aggregate level, this is a gap where institutional investors can bridge by creating a pair trading portfolio with specified strategy and bridth on stock selection.
+Among the 934 stocks eligible for short sell, only the most liquid and hot equities are the more usually target of short-sell. The top blue-chip stocks have a short sell ratio up to 30%, while the second-tier stocks only have a few percentages. Clearly part of the reason for the discrepancy is that investors are worried about the short squeeze or noisy trading behaviors due to smaller liquidity on those stocks. Because of this, at aggregate level, there may be a gap where institutional investors can bridge by creating a pair trading portfolio with specific strategy and breadth on stock selection.
 
-First: the stock price of the 934 stocks have to be downloaded.
+**First Step:** Donwload the stock price of the 934 stocks.
 
 The ticker of the list can be found on the [HKEx](https://www.hkex.com.hk/eng/market/sec_tradinfo/dslist.htm).
 
-After downloading the ticker, I have wrote a crawler to get the stock prices from Yahoo Finance.
+After downloading the ticker, I have written a crawler to get the stock prices from Yahoo Finance.
 
 To spare you from the trouble, I have uploaded the zip file containing all the stock prices over [here](https://github.com/chrisckwong821/chrisckwong821.github.io/blob/master/assets/Reference/StockData.zip)
 
