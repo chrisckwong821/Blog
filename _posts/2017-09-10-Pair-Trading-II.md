@@ -12,22 +12,26 @@ This is a continuation of the Pair Trading Series. For the first article which d
 In this article, I would focus on the analysis of trading pairs by modelling a mean-reverting spread. There are a few ways to define "spread" between prices, I would list a fews that I have come across:
 
 (1) Simple price differences between two products: 
+
 This only gives a sense of how two products move relative to one another. Practically, unless two products have similar price scales, the simple difference has not much meaning.
 
 (2) Percentage Change:
+
 Normalize the simple price difference from a chosen point in time, then measure the spread as if a product itself. This has the advantage of comparison with previous data. The downside is, it is not representative of the pair relationship. For example, assume there are stock A valued at $1 and stock B valued at $10 at time t0. At time t1, both appreciated 10% so $1.1 and $11 for stock A and stock B respectively. However, the spread would appreciated 10% from $9 to $9.9 as well. So practically speaking, simple price difference/its standardized form both would not converge to a particular level. 
 
 (3) Relative Percentage Change:
+
 Using the previous example, an improved form would be measuring the percentage change of both products. So if both stock A and stock B move up 10%, their spread movement would be 0%. This is a more realistic approach to model spread. In pair trading, where we long one product and short the others, profit and loss would be dependent on this relative percentage change given the portfolio is constructed evenly among two stocks. For example, assume one million stock A is longed and one million stock B is short sold, stock A has a 10% gain while stock B has a 5% gain. Then the pnL would be 0.5*1.1+0.5*0.95 = +%2.5. So a spread of (5%) results in a +2.5% gain in the entire portfolio. From this example, the percentage spread is directly representative of gain from this type of simple long/short.
 
-(4) Price Ratio
+(4) Price Ratio:
+
 Directly divide the price of one stock by the other one. This measures the geometric change of both prices. This is the most common use of spread.
 
 
 In this article, I would implement a model that assumes a mean-reverting behavior hidden in the price differential defined by (3). I took reference from [the paper written by Y Chen, W Ren and X Lu](http://cs229.stanford.edu/proj2012/ChenRenLu-MachineLearningInPairsTradingStrategies.pdf) from Stanford. The paper illustrated two approaches to model spread, one adopts O-U model and regression and the other one implemented Kalman's Filter and Expectataion Maximization. For clarity, I would implement the first approach in this article and separate the other one in the next article. I would follow the paper step-by-step with comment on codes. At the end, a profit and loss path would be simulated to measure how  the stock pair is performing.
 
 
-In the last article, the stock pair 0386.HK/0857.HK was discovered by the clustering algorithm DBSCAN. Let's use this as an example for our analysis:
+In the last article, the stock pair 0386.HK and 0857.HK was discovered by the clustering algorithm DBSCAN. Let's use this as an example for our analysis:
 
 
 
@@ -65,7 +69,9 @@ print(openprice.head(2))
     2015-09-07     4.72     5.75
 
 
+
 Let's get our dataset ready by reading in the stock data downloaded from Yahoo Finance. Recalled from last article that a crawler was writtern to get the information. You may download the data(As of 04-09-2017) from [here](https://github.com/chrisckwong821/chrisckwong821.github.io/blob/master/assets/Reference/StockData.zip).
+
 
 
 
@@ -151,6 +157,7 @@ rollingreg(df)[57:62]
 
 
 
+
 Here is a function that does rolling regression. Since pandas rolling regression function only returns the beta, I defined my own one that fully returns alpha, beta and residual. Because I defined a rolling window of 60 days, the regression parameters only have values starting from 60th row.
 
 
@@ -225,6 +232,7 @@ step1()[57:62]
 
 
 
+
 Here we first convert the stock-price series into a representation of percentage change. From the regression parameters, `beta` and `residual` would be the parameters needed. `beta` is used for an robustness checks. Since the model expects a constant beta, stock pairs with an versatile beta within our selected time span would expose much more risk to the trading. The article mentions that a stable rolling beta for 5 days would be a good signal. In reality, this would be case dependent.
 
 
@@ -241,7 +249,7 @@ plt.show()
 ![png]({{ site.baseurl }}/assets/media/PairTrade/2/output_9_0.png)
 
 
-Unfortunately, the stock pair 0386.HK/0857.HK does not demonstrate a stable beta in the past two years. It oscillated from 0.7 to 1 with a sudden drop of 0.5 in the past six months. However, for demonstration purpose I would continue to use this as an example.
+Unfortunately, the stock pair 0386.HK and 0857.HK does not demonstrate a stable beta in the past two years. It oscillated from 0.7 to 1 with a sudden drop of 0.5 in the past six months. However, for demonstration purpose I would continue to use this as an example.
 
 
 ```python
@@ -257,8 +265,8 @@ def step2(df=df):
     new_df['var'] = new_df['residual'].rolling(window=window).std(skipna=True)**2
     new_df['equsigma'] = new_df['var']/(1 - new_df['beta']**2)
     new_df['mu'] = new_df['alpha']/(1- new_df['beta'])
-    new_df['speed'] = -np.log(new_df['beta'])*252
-    new_df['std'] = np.sqrt(new_df['equsigma']*2*new_df['speed'])
+    #new_df['speed'] = -np.log(new_df['beta'])*252
+    #new_df['std'] = np.sqrt(new_df['equsigma']*2*new_df['speed'])
     return new_df
 step2()[235:240]
 ```
@@ -279,8 +287,6 @@ step2()[235:240]
       <th>var</th>
       <th>equsigma</th>
       <th>mu</th>
-      <th>speed</th>
-      <th>std</th>
     </tr>
   </thead>
   <tbody>
@@ -294,8 +300,6 @@ step2()[235:240]
       <td>NaN</td>
       <td>NaN</td>
       <td>0.183050</td>
-      <td>82.185655</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>2016-08-22</th>
@@ -307,8 +311,6 @@ step2()[235:240]
       <td>NaN</td>
       <td>NaN</td>
       <td>0.182475</td>
-      <td>75.294378</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>2016-08-23</th>
@@ -320,8 +322,6 @@ step2()[235:240]
       <td>0.014419</td>
       <td>0.029708</td>
       <td>0.177627</td>
-      <td>83.699655</td>
-      <td>2.230049</td>
     </tr>
     <tr>
       <th>2016-08-24</th>
@@ -333,8 +333,6 @@ step2()[235:240]
       <td>0.013847</td>
       <td>0.030176</td>
       <td>0.177485</td>
-      <td>77.372276</td>
-      <td>2.160930</td>
     </tr>
     <tr>
       <th>2016-08-25</th>
@@ -346,8 +344,6 @@ step2()[235:240]
       <td>0.013978</td>
       <td>0.032742</td>
       <td>0.178732</td>
-      <td>70.149201</td>
-      <td>2.143279</td>
     </tr>
   </tbody>
 </table>
@@ -355,18 +351,19 @@ step2()[235:240]
 
 
 
+
 There are quite a number of parameters that you may be confused of. 
 
 First, `sum_residual` is the 60-day rolling sum of the residuals we get from the first regression of stock price(percentage change). It would be the `Y` in the coming regression. 
 
-`sum_residual_delay` is `sum_residual` with one-day delay. 
+Column `sum_residual_delay` is `sum_residual` with one-day delay. 
 
-alpha,beta and residual are the regression parameters by regression `sum_residual` on `sum_residual_delay`. 
+Column alpha,beta and residual are the regression parameters by regression `sum_residual` on `sum_residual_delay`. 
 
 Now, there are still a bunch of parameters. Among them, `mu` and `equisignma` are directly related to our signal generation:
 
-`mu`: the mean of residual we would expect.
-`equisignma`: the standard deviation of mu we would expect 
+`mu`: The mean of residual we would expect.
+`equisignma`: The standard deviation of mu we would expect 
 
 Now, whenever the residual term exceeds the level of `mu` plus some degree of `equisignma` (z-score depending on the risk level), we can short sell the spread. Recall how regression is done(Y=a+bx+error), concretely short selling the spread means short Y long X(Y-X+). On the other hand, when the residual term plunges through the level of `mu` minus some degree of `equisignma`, we long the spread, long Y short X (Y+X-).
 
