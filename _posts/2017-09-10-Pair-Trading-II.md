@@ -158,7 +158,7 @@ rollingreg(df)[57:62]
 
 <br/> 
 
-Here is a function that does rolling regression. Since pandas rolling regression function only returns the beta, I defined my own one that fully returns alpha, beta and residual. Because I defined a rolling window of 60 days, the regression parameters only have values starting from 60th row.
+Here is a function that does rolling regression. Since pandas rolling regression function only returns beta, I defined my own one that fully returns alpha, beta and residual. Because I defined a rolling window of 60 days, the regression parameters only have values starting from the 60th row.
 
 
 
@@ -233,7 +233,7 @@ step1()[57:62]
 
 <br/> 
 
-Here we first convert the stock-price series into a representation of percentage change. From the regression parameters, `beta` and `residual` would be the parameters needed. `beta` is used for an robustness checks. Since the model expects a constant beta, stock pairs with an versatile beta within our selected time span would expose much more risk to the trading. The article mentions that a stable rolling beta for 5 days would be a good signal. In reality, this would be case dependent.
+Here we first convert the stock-price series into its percentage change. From the regression parameters, we verify that  `alpha` is very close to zero, so we can ignore it for now. `beta` would be used for robustness checks. Since the model expects a constant beta, stock pairs with an versatile beta within our targeted trading time span would impose a bigger risk on the trades. The paper written by Y Chen mentions that a stable rolling beta for 5 days would be a baseline signal. In reality, this would be case dependent.
 
 
 ```python
@@ -249,7 +249,7 @@ plt.show()
 ![png]({{ site.baseurl }}/assets/media/PairTrade/2/output_9_0.png)
 
 
-Unfortunately, the stock pair 0386.HK and 0857.HK does not demonstrate a stable beta in the past two years. It oscillated from 0.7 to 1 with a sudden drop of 0.5 in the past six months. However, for demonstration purpose I would continue to use this as an example.
+Unfortunately, the stock pair 0386.HK and 0857.HK does not demonstrate a stable beta in the past two years. especially in recent months. It oscillated from 0.7 to 1 with a sudden drop of 0.5 in the past six months. However, for demonstration purpose I would continue to use this as an example. Now, after the first regression is done, the rolling sum of residual term would be used for another round of regression against itself with one day delay ~ (R = a + b x R(delay=1) + error). This is equivalent to autoregression with degree 1 / AR(1). 
 
 
 ```python
@@ -352,15 +352,14 @@ step2()[235:240]
 
 <br/> 
 
-There are quite a number of parameters that you may be confused of. 
 
 First, `sum_residual` is the 60-day rolling sum of the residuals we get from the first regression of stock price(percentage change). It would be the `Y` in the coming regression. 
 
-Column `sum_residual_delay` is `sum_residual` with one-day delay. 
+Column `sum_residual_delay` is `sum_residual` with one-day delay. It would be the  `X` in the coming regression.
 
-Column alpha,beta and residual are the regression parameters by regression `sum_residual` on `sum_residual_delay`. 
+Column alpha,beta and residual are the regression parameters resulted from regressing `sum_residual` on `sum_residual_delay`. 
 
-Now, there are still a bunch of parameters. Among them, `mu` and `equisignma` are directly related to our signal generation:
+`mu` and `equisignma` are directly related to our signal generation:
 
 `mu`: The mean of residual we would expect.
 `equisignma`: The standard deviation of mu we would expect 
@@ -369,7 +368,7 @@ Now, whenever the residual term exceeds the level of `mu` plus some degree of `e
 
 
 
-Using a z-score of 1, Let's see how the pnl performs:
+Picking a z-score of 1, Let's see how the pnl performs:
 
 
 
