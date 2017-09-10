@@ -21,7 +21,7 @@ Normalize the simple price difference from a chosen point in time, then measure 
 
 (3) Relative Percentage Change:
 
-Using the previous example, an improved form would be measuring the percentage change of both products. So if both stock A and stock B move up 10%, their spread movement would be 0%. This is a more realistic approach to model spread. In pair trading, where we long one product and short the others, profit and loss would be dependent on this relative percentage change given the portfolio is constructed evenly among two stocks. For example, assume one million stock A is longed and one million stock B is short sold, stock A has a 10% gain while stock B has a 5% gain. Then the pnL would be 0.5*1.1+0.5*0.95 = +%2.5. So a spread of (5%) results in a +2.5% gain in the entire portfolio. From this example, the percentage spread is directly representative of gain from this type of simple long/short.
+Using the previous example, an improved form would be measuring the percentage change of both products. So if both stock A and stock B move up 10%, their spread movement would be 0%. This is a more realistic approach to model spread. In pair trading, where we long one product and short the others, profit and loss would be dependent on this relative percentage change given the portfolio is constructed evenly among two stocks. For example, assume one million stock A is longed and one million stock B is short sold, stock A has a 10% gain while stock B has a 5% gain. Then the pnL would be 0.5x1.1+0.5x0.95 = +%2.5. So a spread of (5%) results in a +2.5% gain in the entire portfolio. From this example, the percentage spread is directly representative of gain from this type of simple long/short.
 
 (4) Price Ratio:
 
