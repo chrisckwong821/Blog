@@ -70,7 +70,7 @@ print(openprice.head(2))
 
 
 
-Let's get our dataset ready by reading in the stock data downloaded from Yahoo Finance. Recalled from last article that a crawler was writtern to get the information. You may download the data(As of 04-09-2017) from [here](https://github.com/chrisckwong821/chrisckwong821.github.io/blob/master/assets/Reference/StockData.zip).
+Let's get our dataset ready by reading in the stock data downloaded from Yahoo Finance. The first dataframe is closed price which would be used for signal generation, while the second is the opening price which would be used for profit and loss simulation. Recalled from last article that a crawler was writtern to get the information. You may download the data(As of 04-09-2017) from [here](https://github.com/chrisckwong821/chrisckwong821.github.io/blob/master/assets/Reference/StockData.zip).
 
 
 
