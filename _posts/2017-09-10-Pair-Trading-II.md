@@ -156,7 +156,7 @@ rollingreg(df)[57:62]
 </div>
 
 
-
+<br/> 
 
 Here is a function that does rolling regression. Since pandas rolling regression function only returns the beta, I defined my own one that fully returns alpha, beta and residual. Because I defined a rolling window of 60 days, the regression parameters only have values starting from 60th row.
 
@@ -231,7 +231,7 @@ step1()[57:62]
 
 
 
-
+<br/> 
 
 Here we first convert the stock-price series into a representation of percentage change. From the regression parameters, `beta` and `residual` would be the parameters needed. `beta` is used for an robustness checks. Since the model expects a constant beta, stock pairs with an versatile beta within our selected time span would expose much more risk to the trading. The article mentions that a stable rolling beta for 5 days would be a good signal. In reality, this would be case dependent.
 
@@ -350,7 +350,7 @@ step2()[235:240]
 </div>
 
 
-
+<br/> 
 
 There are quite a number of parameters that you may be confused of. 
 
