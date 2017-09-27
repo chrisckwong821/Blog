@@ -22,12 +22,14 @@ Moreover, DO is super easy to use and dont have to any configuration or download
 
 
 Full Code Procedures:
+
     1. Initializes a machine(droplet) with python 3.5 pre-installed using the one-click app in DigitalOcean
 
     2. Connect to the machine through ssh built-in in Mac, type `ssh root@theipofvm`. Then type the password that would be sent to your email from DigitalOcean
 
     3. Install dependencies including Splinter(also Selenium implcitly), chromedriver for automated browsing, and chrome as a browser. 
-    For Splinter: run `pip3 install Splinter`.
+    
+    For Splinter: run **pip3 install Splinter**.
 
     For chromedriver run:
 - `wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/`
