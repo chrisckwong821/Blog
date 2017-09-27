@@ -32,14 +32,15 @@ Full Code Procedures:
     For Splinter: run **pip3 install Splinter**.
 
     For chromedriver run:
-- `wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/`
-- `unzip ~/chromedriver_linux64.zip -d ~/`
-- `sudo mv -f ~/chromedriver /usr/local/share/`
+
+    - wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/
+    - unzip ~/chromedriver_linux64.zip -d ~/
+    - sudo mv -f ~/chromedriver /usr/local/share/
        
     For Chrome:
--`sudo apt-get install libxss1 libappindicator1 libindicator7`
-- `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
-- `sudo dpkg -i google-chrome*.deb`
+    - sudo apt-get install libxss1 libappindicator1 libindicator7
+    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - sudo dpkg -i google-chrome*.deb
 
 Then once all dependencies are settled:
 
@@ -85,9 +86,10 @@ browser.quit()
 ```
 
 
-    5. Check the path to python by typing `which python3`, copy the output. Now type `crontab -e` in terminal, put `* * * * * /pathtoyourpython /root/jockery.py` 
+    5. Check the path to python by typing **which python3**, copy the output. Now type **crontab -e** in terminal, type 
+    * * * * * /pathtoyourpython /root/jockery.py into the editor.
 
-    6. If the above does not work, type `$PATH`, copy and paste the output to crontab `PATH=theoutputofyourpath` before the previous cron command.
+    6. If the above does not work, type **$PATH**, copy and paste the output to crontab **PATH=theoutputofyourpath** before the previous cron command.
 
 For improvement, instead of saving the data locally in the virtual machine, the data can be pushed immediately to some cloud storage. I would add an edit to it later.
 
