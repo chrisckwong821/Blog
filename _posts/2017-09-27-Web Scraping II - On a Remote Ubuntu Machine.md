@@ -33,6 +33,7 @@ Full Code Procedures:
 
     For chromedriver run:
 
+    - CHROME_DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`
     - wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/
     - unzip ~/chromedriver_linux64.zip -d ~/
     - sudo mv -f ~/chromedriver /usr/local/share/
