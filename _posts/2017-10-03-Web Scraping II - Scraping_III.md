@@ -70,11 +70,11 @@ For your reference, sqlite3 is a built-in, light-weight library in python to acc
    Check the path to sshpass by `which sshpass`. Basiclly this authorizes sshpass to be executed without superuser password.
  
 5. Schedule updates in Crontab:
- - crontab -e
- - * 1 * * * bin/bash /path/to/syncdb.sh
+ - crontab -e to get into the editor
+ - type * 1 * * * bin/bash /path/to/syncdb.sh
    where syncdb.sh contains the command in Step 3, update is run each hour now.
    
-   Two tips:
+6. Two tips:
  - PATH=outputtopath
    in case system path in cron fails to access sshpass
  - MAILTO=username.com
