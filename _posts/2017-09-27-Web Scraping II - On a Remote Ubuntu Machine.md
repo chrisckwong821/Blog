@@ -36,12 +36,15 @@ Full Code Procedures:
     - CHROME_DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`
     - wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/
     - unzip ~/chromedriver_linux64.zip -d ~/
-    - sudo mv -f ~/chromedriver /usr/local/share/
+    - sudo mv -f ~/chromedriver /usr/local/bin/chromedriver
+    - sudo chown root:root /usr/local/bin/chromedriver
+    - sudo chmod 0755 /usr/local/bin/chromedriver
        
     For Chrome:
-    - sudo apt-get install libxss1 libappindicator1 libindicator7
-    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - sudo dpkg -i google-chrome*.deb
+    - wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/
+    - sudo dpkg -i --force-depends ~/google-chrome-stable_current_amd64.deb
+    - sudo apt-get -f install -y
+    - sudo dpkg -i --force-depends ~/google-chrome-stable_current_amd64.deb
 
 Then once all dependencies are settled:
 
