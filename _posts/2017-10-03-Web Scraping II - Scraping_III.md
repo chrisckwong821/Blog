@@ -82,4 +82,4 @@ For your reference, sqlite3 is a built-in, light-weight library in python to acc
  
 
 
-Coming up next, I would discuss the use of a more production-level scrapper - Spyder, on a new problem.
+Coming up next, I would discuss the use of a more production-level scraping tool - Scrapy, on a new problem.
