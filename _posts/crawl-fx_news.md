@@ -34,11 +34,12 @@ Concerning the Crawling:
     - After inspecting the page elements, you can see that the main table with all the news is rendered by javascript in the browser. In that case, the direct response from the url does not contain the information I need. So I looked for a way to crawl javascript content.
 
     - It is when Splash comes into place. Once Splash is up and running through docker, I managed to get the expected return from the page.
-    
-    - A tip: For testing, you can download the txt file from Splash opened in a browser at  port 8050(default) `localhost:8050`. Then run the file in scrapy shell `scrapy shell file.html` after converting the file into html format. From there you can experiement the methods associated with the response and selectors(a scrapy object).
+
+    - A tip: For testing, you can download the txt file from Splash opened in a browser at  port 8050 (Default) `localhost:8050`. Then run the file in scrapy shell `scrapy shell file.html` after converting the file into html format. From there you can experiement the methods associated with the response and selectors(a scrapy object).
     
 
 Preliminary Steps:
+
     1. Create a project file by ::
     $ scrapy startproject fx_news
     2. Make the necessary change mentioned in the documentation of Splash in ``settings.py``. Here is the setting that I added :
@@ -63,10 +64,8 @@ SPLASH_LOG_400 = False
 ```
 
 
-```python
 The entire crawler under directory ``spiders``:
     
-```
 
 
 ```python
@@ -78,9 +77,10 @@ from scrapy_splash import SplashRequest
 
 class QuotesSpider(scrapy.Spider):
     name = 'fxnews'
-    #days would be a system arguement, which is fed from a bash script
-    #scrapy allow system arguements without use of sys.parse eg:
-    # `scrapy crawl fxnews -a days=5` would fed days=5 into the __init__ of the spider
+    # days would be a system arguement, which is fed from a bash script
+    # scrapy allow system arguements without use of sys.parse eg:
+    # $ scrapy crawl fxnews -a days=5` 
+
     def __init__(self,days):
         self.days = int(days)
         self.pairs = ['EURUSD','USDJPY','EURGBP']
@@ -137,10 +137,14 @@ class QuotesSpider(scrapy.Spider):
 ```
 
 Once the crawler is written, it can be called by outputting its result to a json file ::
+```sh
 $ scrapy crawl fxnews -o news.json
+```
+
 From there sentiment analysis can be conducted.
 TextBlob contains a clean function that return `np.array(sentiment_score, subjectivity)`.
-The score ranges from **-1 to 1**, while objectivity ranges from 0 to 1(Total objectivity = 0 and Total Subjectivity = 1). For simplicity, I evaulated the score by multiplying both elementes to come up with a score for one piece of news, then get the aggregate average of all news concerning one currency pair.
+
+The sentiment score ranges from **-1 to 1**, while objectivity ranges from 0 to 1 (total objectivity = 0; total subjectivity = 1). For simplicity, I evaulated the score by multiplying both elementes to come up with a score for one piece of news, then get the aggregate average of all news concerning one currency pair.
 
 
 ```python
@@ -177,10 +181,8 @@ if __name__ == '__main__':
 ```
 
 
-```python
 Finally, make call to both scripts by a simple bash ``execution.sh``:
     
-```
 
 
 ```bash
@@ -201,21 +203,30 @@ python3 sentiment.py
 
 ```
 
-Finally, simply run ::
+Finally, simply run :
+
+```bash
 $ bash execution.sh
+```
 
 Then the result would be like this:
 
 2017-10-08 21:10:54.713816  Total News: 8
+
 {'EURGBP': 0.0062293261135899728} 
 
 2017-10-08 21:10:54.839823  Total News: 50
+
 {'EURUSD': 0.014449971221041913} 
 
 2017-10-08 21:10:54.897309  Total News: 27
+
 {'USDJPY': 0.021803648466084024}
 
 
-To schedule the task to be performed at certain time every day, eg: 7am, simple use cron ::
- 1. $ contab -e
- 2. $ 0 7 * * * /bin/bash /path/to/execution.sh > output.txt
+To schedule the task to be performed at certain time every day, eg: 7am, simple use cron :
+
+```bash
+ $ contab -e
+ $ 0 7 * * * /bin/bash /path/to/execution.sh > output.txt
+```
