@@ -7,11 +7,11 @@ tags: [Python, Web Scraping, TextBlob, Scrapy, Bash]
 fullview: true
 comments: true
 ---
-Project Description:
+**Project Description:**
 
 > **Scrap forex news specific to each currency pair in the last 24 hours on FXStreet at 7am each day, then calculate an average sentiment score**
 
-Use of Tools:
+**Use of Tools:**
 - **Scrapy**: a web crawler framework and data extraction API
 - **Splash & scrapy_splash**: a javascript-rending tool, so that scrapy spider can crawl responses with javascript.
 - **TextBlob**: a light-weight wrapper of NLTK, which is a full-fledged, comprehensive neutral language processing library.
