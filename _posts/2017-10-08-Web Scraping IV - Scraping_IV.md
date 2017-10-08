@@ -25,22 +25,23 @@ I don't think I can explain better than the official documentations:
 
 **The Evaluation Steps:**
 
-    1. Since I would like to get news for each pair, so I have first gone to the news page of [each curreny pair](https://www.fxstreet.com/news/latest?dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD)
+1. Since I would like to get news for each pair, so I have first gone to the news page of [each curreny pair](https://www.fxstreet.com/news/latest?dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD)
 
-    2. As soon as I started turning over to the new page, I noticed that FXStreet allows custom pagination in the url, so I could specify a much larger number of news on a page than what I would need, eg: 50, to avoid navigating to the next page, which would involve additional lines. The [url](https://www.fxstreet.com/news/latest?q=&hPP=50&idx=FxsIndexPro&p=0&dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD) here is structured differently, a parameter 'PP' is added, which determines pagination.
+2. As soon as I started turning over to the new page, I noticed that FXStreet allows custom pagination in the url, so I could specify a much larger number of news on a page than what I would need, eg: 50, to avoid navigating to the next page, which would involve additional lines. The [url](https://www.fxstreet.com/news/latest?q=&hPP=50&idx=FxsIndexPro&p=0&dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD) here is structured differently, a parameter 'PP' is added, which determines pagination.
 
-    3. After inspecting the page elements, you can see that the main table with all the news is rendered by javascript in the browser. In that case, the direct response from the url does not contain the information I need. So I looked for a way to crawl javascript content.
+3. After inspecting the page elements, you can see that the main table with all the news is rendered by javascript in the browser. In that case, the direct response from the url does not contain the information I need. So I looked for a way to crawl javascript content.
 
-    4. It is when Splash comes into place. Once Splash is up and running through docker, I managed to get the expected return from the page.
+4. It is when Splash comes into place. Once Splash is up and running through docker, I managed to get the expected return from the page.
 
-    5. A tip: For testing, you can download the txt file from Splash opened in a browser at  port 8050 (Default) `localhost:8050`. Then run the file in scrapy shell `scrapy shell file.html` after converting the file into html format. From there you can experiement the methods associated with the response and selectors(a scrapy object).
+5. A tip: For testing, you can download the txt file from Splash opened in a browser at  port 8050 (Default) `localhost:8050`. Then run the file in scrapy shell `scrapy shell file.html` after converting the file into html format. From there you can experiement the methods associated with the response and selectors(a scrapy object).
     
 
 **Preliminary Steps:**
 
-    1. Create a project file by ::
-    $ scrapy startproject fx_news
-    2. Make the necessary change mentioned in the documentation of Splash in ``settings.py``. Here is the setting that I added :
+1. Create a project file by :
+`$ scrapy startproject fx_news`
+
+2. Make the necessary change mentioned in the documentation of Splash in ``settings.py``. Here is the setting that I added :
 
 
 ```python
@@ -61,9 +62,7 @@ SPLASH_LOG_400 = False
 
 ```
 
-
-The entire crawler under directory ``spiders``:
-    
+The entire crawler under directory ``spiders``: 
 
 
 ```python
@@ -143,7 +142,9 @@ $ scrapy crawl fxnews -o news.json
 From there sentiment analysis can be conducted.
 TextBlob contains a clean function that return `np.array(sentiment_score, subjectivity)`.
 
-The sentiment score ranges from **-1 to 1**, while objectivity ranges from 0 to 1 (total objectivity = 0; total subjectivity = 1). For simplicity, I evaulated the score by multiplying both elementes to come up with a score for one piece of news, then get the aggregate average of all news concerning one currency pair.
+The sentiment score ranges from **-1 to 1**, while objectivity ranges from **0 to 1** (total objectivity = 0; total subjectivity = 1). 
+
+For simplicity, I evaulated the score by multiplying both elementes to come up with a score for one piece of news, then get the aggregate average of all news concerning one currency pair.
 
 
 ```python
