@@ -18,10 +18,9 @@ Use of Tools:
 
 **Installation:**
 I don't think I can explain better than the official documentations:
-
-    - [Scrapy](https://scrapy.org/download/)
-    - [Splash & scrapy_splash](https://github.com/scrapy-plugins/scrapy-splash)
-    - [TextBlob](https://textblob.readthedocs.io/en/dev/)
+- [Scrapy](https://scrapy.org/download/)
+- [Splash & scrapy_splash](https://github.com/scrapy-plugins/scrapy-splash)
+- [TextBlob](https://textblob.readthedocs.io/en/dev/)
 
 
 **The Evaluation Steps:**
