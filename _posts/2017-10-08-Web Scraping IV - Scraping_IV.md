@@ -9,7 +9,7 @@ comments: true
 ---
 Project Description:
 
-- Scrap forex news specific to each currency pair in the last 24 hours on FXStreet at 7am each day, then calculate an average sentiment score
+> **Scrap forex news specific to each currency pair in the last 24 hours on FXStreet at 7am each day, then calculate an average sentiment score**
 
 Use of Tools:
 - **Scrapy**: a web crawler framework and data extraction API
@@ -17,27 +17,27 @@ Use of Tools:
 - **TextBlob**: a light-weight wrapper of NLTK, which is a full-fledged, comprehensive neutral language processing library.
 
 **Installation:**
+I don't think I can explain better than the official documentations:
 
-I dont think I can explain better than the official documentations:
     - [Scrapy](https://scrapy.org/download/)
     - [Splash & scrapy_splash](https://github.com/scrapy-plugins/scrapy-splash)
     - [TextBlob](https://textblob.readthedocs.io/en/dev/)
 
 
-Concerning the Crawling:
-------------------------
-    - Since I would like to get news for each pair, so I have first gone to the news page of [each curreny pair](https://www.fxstreet.com/news/latest?dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD)
+**The Evaluation Steps:**
 
-    - As soon as I started turning over to the new page, I noticed that FXStreet allows custom pagination in the url, so I could specify a much larger number of news on a page than what I would need, eg: 50, to avoid navigating to the next page, which would involve additional lines. The [url](https://www.fxstreet.com/news/latest?q=&hPP=50&idx=FxsIndexPro&p=0&dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD) here is structured differently, a parameter 'PP' is added, which determines pagination.
+    1. Since I would like to get news for each pair, so I have first gone to the news page of [each curreny pair](https://www.fxstreet.com/news/latest?dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD)
 
-    - After inspecting the page elements, you can see that the main table with all the news is rendered by javascript in the browser. In that case, the direct response from the url does not contain the information I need. So I looked for a way to crawl javascript content.
+    2. As soon as I started turning over to the new page, I noticed that FXStreet allows custom pagination in the url, so I could specify a much larger number of news on a page than what I would need, eg: 50, to avoid navigating to the next page, which would involve additional lines. The [url](https://www.fxstreet.com/news/latest?q=&hPP=50&idx=FxsIndexPro&p=0&dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD) here is structured differently, a parameter 'PP' is added, which determines pagination.
 
-    - It is when Splash comes into place. Once Splash is up and running through docker, I managed to get the expected return from the page.
+    3. After inspecting the page elements, you can see that the main table with all the news is rendered by javascript in the browser. In that case, the direct response from the url does not contain the information I need. So I looked for a way to crawl javascript content.
 
-    - A tip: For testing, you can download the txt file from Splash opened in a browser at  port 8050 (Default) `localhost:8050`. Then run the file in scrapy shell `scrapy shell file.html` after converting the file into html format. From there you can experiement the methods associated with the response and selectors(a scrapy object).
+    4. It is when Splash comes into place. Once Splash is up and running through docker, I managed to get the expected return from the page.
+
+    5. A tip: For testing, you can download the txt file from Splash opened in a browser at  port 8050 (Default) `localhost:8050`. Then run the file in scrapy shell `scrapy shell file.html` after converting the file into html format. From there you can experiement the methods associated with the response and selectors(a scrapy object).
     
 
-Preliminary Steps:
+**Preliminary Steps:**
 
     1. Create a project file by ::
     $ scrapy startproject fx_news
@@ -135,7 +135,8 @@ class QuotesSpider(scrapy.Spider):
 
 ```
 
-Once the crawler is written, it can be called by outputting its result to a json file ::
+Once the crawler is written, it can be called by outputting its result to a json file :
+
 ```sh
 $ scrapy crawl fxnews -o news.json
 ```
@@ -179,10 +180,8 @@ if __name__ == '__main__':
     
 ```
 
-
 Finally, make call to both scripts by a simple bash ``execution.sh``:
     
-
 
 ```bash
 #!/bin/bash
