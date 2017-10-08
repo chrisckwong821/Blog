@@ -25,7 +25,7 @@ I don't think I can explain better than the official documentations:
 
 **The Evaluation Steps:**
 
-1. Since I would like to get news for each pair, so I have first gone to the news page of [each curreny pair].(https://www.fxstreet.com/news/latest?dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD)
+1. Since I would like to get news for each pair, so I have first gone to the news page of [each curreny pair](https://www.fxstreet.com/news/latest?dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD).
 
 2. As soon as I started turning over to the new page, I noticed that FXStreet allows custom pagination in the url, so I could specify a much larger number of news on a page than what I would need, eg: 50, to avoid navigating to the next page, which would involve additional lines. The [url](https://www.fxstreet.com/news/latest?q=&hPP=50&idx=FxsIndexPro&p=0&dFR%5BCategory%5D%5B0%5D=News&dFR%5BTags%5D%5B0%5D=EURUSD) here is structured differently, a parameter 'PP' is added, which determines pagination.
 
