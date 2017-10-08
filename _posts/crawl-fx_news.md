@@ -17,8 +17,8 @@ Use of Tools:
 - **Splash & scrapy_splash**: a javascript-rending tool, so that scrapy spider can crawl responses with javascript.
 - **TextBlob**: a light-weight wrapper of NLTK, which is a full-fledged, comprehensive neutral language processing library.
 
+**Installation:**
 
-Installation:
 I dont think I can explain better than the official documentations:
     - [Scrapy](https://scrapy.org/download/)
     - [Splash & scrapy_splash](https://github.com/scrapy-plugins/scrapy-splash)
