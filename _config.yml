@@ -8,6 +8,8 @@ markdown: kramdown
 disqus: my-blog-b38tyl8oop
 google_analytics: dbyll
 title: Chris Wong Chun Kau
+SEOTitle: Chris Blog
+keyword: "Python, Algorithmic Trading, Financial Anaylsis, Pandas, Web Scraping"
 timezone: Asia/Hong Kong
 
 defaults:
